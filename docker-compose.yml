@@ -14,12 +14,21 @@ services:
       MAX_MEMORY: 10G
       MOTD: "PUSSY + DIAMOND + WEED"
       ENABLE_ROLLING_LOGS: "true"
-      OPS: "Chapoliiat"
       VIEW_DISTANCE: 18
       USE_AIKAR_FLAGS: "true"
       TYPE: PURPUR
-      JVM_OPTS: "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1"
-    restart: unless-stopped
+      # ENABLE_AUTOPAUSE: "true"
+      # AUTOPAUSE_TIMEOUT_EST: 3600  # 1 hour
+      # AUTOPAUSE_TIMEOUT_INIT: 600  # 10 minutes
+      # AUTOPAUSE_TIMEOUT_KN: 120    # 2 minutes
+      # AUTOPAUSE_PERIOD: 10         # 10 seconds
+      # AUTOPAUSE_KNOCK_INTERFACE: eth0  # Set your network interface
+      # ENABLE_AUTOSTOP: "TRUE"
+      # AUTOSTOP_TIMEOUT_INIT: "1800"  # 30 minutes
+      # AUTOSTOP_TIMEOUT_EST: "3600"   # 1 hour
+      # AUTOSTOP_PERIOD: 10            # 10 seconds
+      LOG_TIMESTAMP: TRUE
+    restart: "no"
   rcon:
     image: itzg/rcon
     environment:
