@@ -59,5 +59,20 @@ services:
       - ./data:/data:ro  # Mounts the Minecraft server data directory read-only
       - ./backups:/backups  # Directory where backups will be stored
     restart: unless-stopped
+  pterodactyl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pterodactyl
+    environment:
+      - STARTUP="java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar {{SERVER_JARFILE}}"
+      - SERVER_MEMORY=1024
+      - SERVER_JARFILE=server.jar
+    volumes:
+      - ./data:/home/container
+    ports:
+      - "8080:8080"
+    networks:
+      - pterodactyl_net
 volumes:
   rcon:
